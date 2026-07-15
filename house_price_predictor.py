@@ -1,9 +1,18 @@
 import torch
 import torch.nn as nn
+#pandas here is used for data manipulation and analysis. It provides data structures like DataFrames that allow for easy handling of structured data, such as tabular data. In this code, pandas is imported but not used directly, but it can be useful for loading and preprocessing datasets in machine learning tasks.
+import pandas as pd
+#sklearn here is used for data preprocessing and splitting the dataset into training and testing sets. It provides tools for scaling features, splitting data, and other utilities that are commonly used in machine learning workflows.
+from sklearn.datasets import fetch_california_housing 
+from sklearn.model_selection import train_test_split    
+from sklearn.preprocessing import StandardScaler
 #torch.manual_seed(42) means that we are setting the random seed for PyTorch's random number generator to 42. This is done to ensure reproducibility of results. When you set a specific seed, the sequence of random numbers generated will be the same each time you run the code, which is useful for debugging and comparing results across different runs.
 torch.manual_seed(42)
 
+
+data=fetch_california_housing()
 # ── data ─────────────────────────────────────────────────────
+
 X = torch.randn(100, 3)
 y = 2*X[:,0] + 1.5*X[:,1] - 0.5*X[:,2] + 0.1*torch.randn(100)
 y = y.unsqueeze(1)
@@ -31,9 +40,14 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 #3. Gradient Reset: The gradients of the model's parameters are reset to zero using optimizer.zero_grad().
 #4. Backward Pass: The loss is backpropagated through the network using loss.mean().backward(), which computes the gradients of the loss with respect to the model's parameters.
 
+X_train,X_test = X[:80], X[80:]
+y_train,y_test = y[:80], y[80:]
+
+criterion = nn.MSELoss()
 for step in range(500):
-    y_pred = model(X)
-    loss   = (y_pred - y) ** 2
+    y_pred = model(X_train)
+    y_pred = model(X_train)
+    loss = criterion(y_pred, y_train)
     optimizer.zero_grad()
     loss.mean().backward()
     optimizer.step()
