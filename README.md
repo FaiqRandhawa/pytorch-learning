@@ -209,6 +209,36 @@ conv1 detects low level patterns (edges). conv2 detects patterns of patterns (sh
 
 **result:** epoch 1 already hits 97.98 percent, better than where the flat network ended after 5 full epochs. that's the power of spatial awareness.
 
+### july 18 — huggingface and pretrained models
+
+the biggest shift in approach so far. instead of training from scratch,
+you load a model that already knows things and use it immediately.
+
+huggingface is a platform with thousands of pretrained models. one line
+loads a model trained on millions of examples that would take weeks to
+train yourself.
+
+what we used today:
+
+sentiment analysis — loaded distilbert, a smaller faster version of BERT
+trained on millions of text samples. classifies text as positive or negative
+with a confidence score. zero training required.
+
+named entity recognition — finds people, places and organizations in text
+automatically. same idea, pretrained model, immediate results.
+
+summarization — condenses long text into short summaries using BART,
+a transformer model trained specifically for text generation tasks.
+
+the key insight today: in real world AI you rarely train from scratch.
+you take a model that already understands language or images, and either
+use it directly or fine tune it on your specific data. training from scratch
+is what big labs like google and meta do. everyone else builds on top of
+what they released.
+
+tomorrow we go under the hood — tokenization, loading models manually
+without the pipeline abstraction, and fine tuning on custom
+
 ---
 
 ## the reusable ML template
