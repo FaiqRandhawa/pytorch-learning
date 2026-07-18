@@ -2,27 +2,7 @@
 
 this is my personal log of learning AI and deep learning from scratch. i'm a second year CS student at FAST NUCES doing this alongside a two month internship in islamabad. the goal is to get genuinely good at this, not just surface level. i want to understand what's happening under the hood, not just call APIs.
 
-i'm documenting everything here so i can look back and see how far i've come.
-
----
-
-## the goal
-
-become an AI product engineer in the top 5 percent. someone who can build real AI powered full stack products and actually understands the underlying mechanics. not just prompt engineering, not just gluing libraries together. the real thing.
-
----
-
-## where i started
-
-before any of this i had basic knowledge of MERN stack, Django and FastAPI. i understood how they worked but couldn't write code from scratch confidently. in my university AI course i covered backpropagation, multilayer perceptrons and K-Means with numpy, but i passed those without deeply understanding them. so i went back to basics.
-
----
-
-## the learning approach
-
-no tutorials. no watching and nodding. i learn by building things in chat with Claude, implementing every concept from scratch, and only moving forward when the code actually runs and i understand every line. no copy paste without reading. no skipping ahead.
-
-every session ends with working code pushed to github.
+i'm documenting everything here
 
 ---
 
@@ -287,7 +267,3 @@ with torch.no_grad():
 **cnn_mnist.py** — convolutional neural network on MNIST, better accuracy faster
 
 ---
-
-## what's coming next
-
-pooling layers and dropout to make CNNs more robust. then moving off MNIST to real image datasets. then HuggingFace and pretrained models where you stop training from scratch and fine tune models that already know a lot. then LLMs, transformers and eventually building actual AI powered products. that's the goal.
