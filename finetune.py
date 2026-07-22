@@ -42,6 +42,7 @@ def compute_metrics(eval_pred):
 # trainer
 trainer = Trainer(
     model=model,
+    
     args=args,
     train_dataset=small_train,
     eval_dataset=small_test,
